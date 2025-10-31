@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - school-network
+    environment:
+      MONGO_INITDB_DATABASE: school
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/school
+      - PORT=5000
+    volumes:
+      - ./:/app
+    networks:
+      - school-network
+
+volumes:
+  mongo-data:
+
+networks:
+  school-network:
+    driver: bridge
+
