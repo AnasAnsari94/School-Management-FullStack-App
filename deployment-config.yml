@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: school-management-fullstack-app-app
+  labels:
+    app: school-management-fullstack-app-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: school-management-fullstack-app-app
+  template:
+    metadata:
+      labels:
+        app: school-management-fullstack-app-app
+    spec:
+      containers:
+      - name: school-management-fullstack-app-app
+        image: anas242/school-management-fullstack-app_app:latest
+        ports:
+        - containerPort: 5000
+      - name: mongodb
+        image: mongo:latest
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-school-management-fullstack-app-app
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  selector:
+    app: school-management-fullstack-app-app
+  type: LoadBalancer

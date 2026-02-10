@@ -1,0 +1,14 @@
+[init]
+	defaultBranch = none
+[fetch]
+	recurseSubmodules = false
+[credential]
+	interactive = never
+[gc]
+	autoDetach = false
+[http]
+	extraHeader = X-Gitaly-Correlation-ID: 9970fd4db0b980af-IAD
+[transfer]
+	bundleURI = true
+[http "https://gitlab.com"]
+	sslCAInfo = /home/dmin/School-Management-FullStack-App/builds/_eYyGhiUP/0/AnasAnsari94/School-Management-FullStack-App.tmp/CI_SERVER_TLS_CA_FILE
