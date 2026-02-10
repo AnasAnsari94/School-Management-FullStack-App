@@ -31,91 +31,107 @@ Projects-web-dev-main/
 │── README.md # Documentation
 
 Run The App
-🐳 Running the App with Docker
-🧩 1. Build the Docker Image
-docker build -t school-web-app .
 
-🧩 2. Run the Container
-docker run -d -p 5000:5000 --name school_container school-web-app
+``🐳 Running the App with Docker``
 
-🧩 3. View Running Containers
-docker ps
+``🧩 1. Build the Docker Image``
 
-🧩 4. Check Container Logs
-docker logs school_container
+`docker build -t school-web-app .`
 
-🧩 5. Stop the Container
-docker stop school_container
+``🧩 2. Run the Container``
 
-🧩 6. Remove the Container
-docker rm school_container
+`docker run -d -p 5000:5000 --name school_container school-web-app`
 
-🧩 7. Remove the Image
-docker rmi school-web-app
+``🧩 3. View Running Containers``
 
-⚙️ Using Docker Compose (Recommended for Multi-Service Setup)
-🧩 1. Build and Start Containers
-docker-compose up --build
+`docker ps`
 
-🧩 2. Run in Detached Mode
-docker-compose up -d
+``🧩 4. Check Container Logs``
 
-🧩 3. View Running Services
-docker-compose ps
+`docker logs school_container`
 
-🧩 4. View Logs
-docker-compose logs -f
+``🧩 5. Stop the Container``
 
-🧩 5. Stop and Remove Containers
-docker-compose down
+`docker stop school_container`
 
-🧩 6. Rebuild Containers Without Cache
-docker-compose build --no-cache
+``🧩 6. Remove the Container``
 
-☁️ Deployment Guide (AWS EC2 Example)
+`docker rm school_container`
 
-SSH into your EC2 instance:
+``🧩 7. Remove the Image``
 
-ssh ubuntu@<EC2-Public-IP>
+`docker rmi school-web-app`
+
+``⚙️ Using Docker Compose (Recommended for Multi-Service Setup)``
+
+``🧩 1. Build and Start Containers``
+
+`docker-compose up --build`
+
+``🧩 2. Run in Detached Mode``
+
+`docker-compose up -d`
+
+``🧩 3. View Running Services``
+
+`docker-compose ps`
+
+``🧩 4. View Logs``
+
+`docker-compose logs -f`
+
+``🧩 5. Stop and Remove Containers``
+
+`docker-compose down`
+
+``🧩 6. Rebuild Containers Without Cache``
+
+`docker-compose build --no-cache`
+
+``☁️ Deployment Guide (AWS EC2 Example)``
+
+``SSH into your EC2 instance:``
+
+`ssh ubuntu@<EC2-Public-IP>`
 
 
-Install Docker & Docker Compose:
+``Install Docker & Docker Compose:``
 
-sudo apt update
+`sudo apt update
 sudo apt install docker.io docker-compose -y
 sudo systemctl start docker
-sudo systemctl enable docker
+sudo systemctl enable docker`
 
 
-Clone your repository:
+``Clone your repository:``
 
-git clone <repo-url>
-cd Projects-web-dev-main
-
-
-Build and run your app:
-
-docker-compose up -d --build
+`git clone <repo-url>
+cd Projects-web-dev-main`
 
 
-Check running containers:
+``Build and run your app:``
 
-docker ps
-
-
-Access your app at:
-
-http://<EC2-Public-IP>:5000
-
-🧰 Troubleshooting
-
-Port Already in Use:
-
-sudo lsof -i :5000
-sudo kill -9 <PID>
+`docker-compose up -d --build`
 
 
-Rebuild Everything from Scratch:
+``Check running containers:``
 
-docker-compose down --rmi all --volumes --remove-orphans
-docker-compose up --build
+`docker ps`
+
+
+``Access your app at:``
+
+`http://<EC2-Public-IP>:5000`
+
+``🧰 Troubleshooting``
+
+``Port Already in Use:``
+
+`sudo lsof -i :5000
+sudo kill -9 <PID>`
+
+
+``Rebuild Everything from Scratch:``
+
+`docker-compose down --rmi all --volumes --remove-orphans
+docker-compose up --build`
